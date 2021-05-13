@@ -1,0 +1,26 @@
+<h1> Alpha Bloggers </h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Avatar</th>
+            <th>Number of articles</th>
+            <th>Joined At</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= link_to user.username, user_path(user) %></td>
+            <td><%= link_to gravatar_for(user, size: 150), user %></td>
+            <td><%= pluralize(user.articles.count, "articles") %>
+            <td><%= time_ago_in_words(user.created_at) %> ago</td>
+            <td><%= link_to "View Profile", user %></td>
+            <td><%= link_to "Edit profile", edit_user_path(user) %></td>
+        </tr>
+    <%end%>
+    </tbody>
+</table>
