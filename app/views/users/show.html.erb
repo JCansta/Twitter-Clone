@@ -2,4 +2,5 @@
 <%= gravatar_for @user, size: 200 %><br>
 <%= link_to "Edit your profile", edit_user_path(@user)%>
 <h1> Actual <%= @user.username%>'s Article </h1>
+<%= link_to "Logout", logout_path, method: :delete %>
 <%= render 'articles/article' %>

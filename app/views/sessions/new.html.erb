@@ -1,0 +1,18 @@
+<h1>Log In for Blog </h1>
+<%= form_with scope: :session, url: login_path do |form| %>
+    <div>
+        <%= form.label :email %><br>
+        <%= form.email_field :email, placeholder: "Enter the email" %><br>
+
+    </div>
+    <div>
+        <%= form.label :password %><br>
+        <%= form.password_field :password, placeholder: "Enter your password" %><br>
+        
+    </div>
+    <div>
+        <%= form.submit "Log in" %>
+    </div>
+<% end %>
+<br>
+<%= link_to "Back", articles_path %>
