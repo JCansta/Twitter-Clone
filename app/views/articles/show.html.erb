@@ -1,13 +1,25 @@
-<h1>show</h1>
-<h2>Created </h2><br>
-by <%= @article.user.username %><br>
-<%= link_to gravatar_for(@article.user), user_path(@article.user) %>
-<h2> Title </h2><br>
-<%= @article.title %><br>
-<h2> Description </h2><br>
-<%= @article.description %><br><br>
-<%= link_to "Edit", edit_article_path(@article.id) %> |
-<%= link_to "Destroy", article_path(@article),
-                                        method: :delete,
-                                        data: {confirm: "Are you sure?"} %>|
-<%= link_to "Back", articles_path %>
+<h2 class="text-center mt-4"> <%= @article.title %></h2>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+                <div class="card-header font-italic">
+                <% if @article.user %>
+                        Created by <%= link_to @article.user.username, user_path(@article.user) %>
+                    <%end %>
+                </div>
+            <div class="card-body">
+                <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+                <%= link_to "Edit", edit_article_path(@article.id), class: "btn btn-outline-info"%>
+                <%= link_to "Destroy", article_path(@article),
+                                    method: :delete,
+                                    data: {confirm: "Are you sure?"},
+                                    class: "btn btn-outline-danger" %>
+            </div>
+            <div class="card-footer text-muted">
+                <small>Created <%= time_ago_in_words(@article.created_at) %> ago,
+                edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+            </div>
+        </div>
+    </div>
+</div> 
