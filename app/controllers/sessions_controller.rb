@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     def new
-
+        @user = User
     end
 
     def create
@@ -10,14 +10,14 @@ class SessionsController < ApplicationController
             flash[:notice] = "Logged in successfully"
             redirect_to user
         else
-            flash.now[:alert] = "THere was something wrong with your login"
+            flash.now[:alert] = "There was something wrong with your login"
             render 'new'
         end
     end
 
     def destroy
         session[:user_id] = nil
-        flash[:notice] = "LOgged out"
+        flash[:notice] = "Logged out"
         redirect_to root_path
     end
 

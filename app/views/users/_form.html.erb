@@ -1,29 +1,35 @@
-<%= form_with model: user do |form| %>
-    <div>
-        <%= form.label :username %><br>
-        <%= form.text_field :username, placeholder: "Enter a Username" %>
-        <% user.errors.full_messages_for(:username).each do |message| %>
-            <div> <%= message %></div>
-        <%end%>
-    </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <%= render 'shared/errors', obj: @user %>
+            <%= form_with model: user, class: "shadow p-3 mb-3 bg-info rounded" do |form| %>
+                <div class="form-group row">
+                    <%= form.label :username, class: "col-2 col-form-label text-light" %>
+                    <div class="col-10">
+                        <%= form.text_field :username, class: "form-control shadow rounded", placeholder: "Enter a Username" %>
+                    </div>
+                </div>
 
-    <div>
-        <%= form.label :email %><br>
-        <%= form.email_field :email, placeholder: "Enter the email" %><br>
-        <% user.errors.full_messages_for(:email).each do |message| %>
-            <div> <%= message %></div>
-        <%end%>
+                <div class="form-group row">
+                    <%= form.label :email, class: "col-2 col-form-label text-light" %>
+                    <div class="col-10">
+                        <%= form.email_field :email, class: "form-control shadow rounded", placeholder: "Enter the email" %>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <%= form.label :password, class: "col-2 col-form-label text-light" %>
+                    <div class="col-10">
+                        <%= form.password_field :password, class: "form-control shadow rounded", placeholder: "Select a Password"%>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <%= form.submit(@user.new_record? ? "Sign Up" : "Update Account", class: "btn btn-outline-light btn-lg") %>
+                </div>
+            <% end %>
+        </div>
+        <div class="mb-3">
+            <%= link_to "[ Cancel and return to Article Listing ]", articles_path, class: "text-info" %>
+        </div>
     </div>
-    <div>
-        <%= form.label :password %><br>
-        <%= form.password_field :password, placeholder: "Enter password" %><br>
-        <%  user.errors.full_messages_for(:password).each do |message| %>
-            <div> <%= message %></div>
-        <%end%>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
-<% end %>
-<br>
-<%= link_to "Back", articles_path %>
+</div>

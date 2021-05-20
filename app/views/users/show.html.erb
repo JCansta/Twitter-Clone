@@ -1,6 +1,7 @@
-<h1> Actual <%= @user.username%>'s Profile </h1>
-<%= gravatar_for @user, size: 200 %><br>
-<%= link_to "Edit your profile", edit_user_path(@user)%>
-<h1> Actual <%= @user.username%>'s Article </h1>
-<%= link_to "Logout", logout_path, method: :delete %>
+<h1 class="text-center mt-4"> <%= @user.username%>'s Profile </h1>
+<%= gravatar_for @user, size: 200 %>
+<% if logged_in? && current_user == @user%>
+    <a class="text-center mt-4"><%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-outline-info"%></a>
+<% end %>
+<h3 class="text-center mt-4"> Articles </h3>
 <%= render 'articles/article' %>
