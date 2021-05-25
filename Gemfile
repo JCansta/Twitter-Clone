@@ -60,3 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # paginate gems
 gem 'will_paginate', '~> 3.3.0'
+
+# unit tests
+gem 'test-unit', '~> 3.1', '>= 3.1.8'
