@@ -63,3 +63,9 @@ gem 'will_paginate', '~> 3.3.0'
 
 # unit tests
 gem 'test-unit', '~> 3.1', '>= 3.1.8'
+
+# active admin
+gem 'roo', '~> 2.7', '>= 2.7.1'
+
+# carrierwave
+gem 'carrierwave', '~> 2.0'
