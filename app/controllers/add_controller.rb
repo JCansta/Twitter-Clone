@@ -5,8 +5,7 @@ class AddController < ApplicationController
     end
 
     def create
-        #require 'fileutils'
-        @doc = params[:create][:file]
+        #require 'fileutils'@doc = params[:create][:file]
         #file = File.join("public", params[:file].original_filename)
         #Fileutils.cp tmp.path, file
         data = Roo::Spreadsheet.open(@doc, extension: :xlsx)
@@ -18,6 +17,7 @@ class AddController < ApplicationController
         end
         flash[:notice] = "Upload all User successfully"
         redirect_to users_path
+        
         #Fileutils.rm file
     end
 

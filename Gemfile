@@ -69,3 +69,9 @@ gem 'roo', '~> 2.7', '>= 2.7.1'
 
 # carrierwave
 gem 'carrierwave', '~> 2.0'
+
+# bootstrap
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem 'activeadmin'
+gem 'devise'
