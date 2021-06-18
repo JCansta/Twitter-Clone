@@ -19,14 +19,41 @@
   }
 
   #home-container {
-    margin-top: 25px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
+
+  .home {
+    background-color: white;
+  }
+
+  .home h1, p { 
+    color: #0f1419
+  }
+
+  .home-bg {
+    background-image: asset-url('home_bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .home-bg div {
+    height: 100%;
+  }
+  
   .jumbotron {
     background-image: asset-url('jumble-copy.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 425px;
+  }
+
+  #twitter-logo {
+    color: white;
   }
 
   html,
