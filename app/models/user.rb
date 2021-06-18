@@ -2,7 +2,7 @@ class User < ApplicationRecord
     before_save { self.email = email.downcase }
     has_many :articles, dependent: :destroy
 
-    has_many :follows
+    has_many :follows, dependent: :destroy
 
     has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
     has_many :followers, through: :follower_relationships, source: :follower
